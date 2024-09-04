@@ -20,7 +20,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.materialdesign3_noche.MainActivity;
 import com.example.materialdesign3_noche.R;
 
 import org.json.JSONException;

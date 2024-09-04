@@ -1,6 +1,7 @@
 package com.example.materialdesign3_noche.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.materialdesign3_noche.MovieActivity;
 import com.example.materialdesign3_noche.R;
 
 import org.json.JSONException;
@@ -51,6 +53,14 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.Peliculas>
         String pelicula = this.listaPeliculas.get(position);
         descargarDatosPelicula(context, pelicula, view);
 
+        view.itemView.setOnClickListener(v -> {
+            Log.e("msg", view.json);
+
+            Intent intent = new Intent(context, MovieActivity.class);
+            intent.putExtra("detallePelicula", view.json);
+            context.startActivity(intent);
+        });
+
     }
 
     private void descargarDatosPelicula(Context context, String pelicula, Lista2Adapter.Peliculas view) {
@@ -65,8 +75,9 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.Peliculas>
                 try {
                     //String titulo = res.getString("Title");
                     String imageUrl = res.getString("Poster");
-
                     //view.titulo.setText(titulo);
+
+                    view.json = res.toString(); //guardamos el json como string para poder enviarlo a MovieActivity
 
                     Glide.with(context)
                             .load(imageUrl)
@@ -94,11 +105,13 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.Peliculas>
     public class Peliculas extends RecyclerView.ViewHolder {
 
         ImageView imagen;
+        String json;
 
         public Peliculas(@NonNull View itemView) {
             super(itemView);
 
             imagen = itemView.findViewById(R.id.imagen);
+            json = "";
         }
     }
 }

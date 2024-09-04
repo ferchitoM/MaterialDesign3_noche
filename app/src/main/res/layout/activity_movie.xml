@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    tools:context=".MovieActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Título película"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="163dp"
+        android:layout_height="236dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/descripcion"
+        android:layout_width="171dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="32dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit non enim lobortis consectetur. Fusce a orci tempor, dictum ligula eget, dapibus felis. Nullam ut laoreet nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit feugiat quam, vel interdum tortor tristique ac. Maecenas ac ligula vel turpis pharetra luctus eget at felis. Suspendisse mattis, nisl eu imperdiet porttitor, turpis erat rutrum dolor, ac hendrerit libero nisi vel nulla."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+</androidx.constraintlayout.widget.ConstraintLayout>
